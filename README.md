@@ -8,7 +8,7 @@ For commands related to the loop device, see the below terminal output.
 
 Use the makefile and simple hit 'make' to generate the new file system!
 
-$ sudo su
+```$ sudo su
 # dd if=/dev/zero of=./ext2.img bs=1024 count=224
 224+0 records in
 224+0 records out
@@ -72,4 +72,4 @@ drwxr-xr-x 2 root root 4096 Nov 17 19:42 sub2.1
 # ls -al mnt/
 total 8
 drwxr-xr-x  2 root root 4096 Nov 17 19:41 .
-drwxr-x--- 24 o_o  o_o  4096 Nov 17 19:41 ..
+drwxr-x--- 24 o_o  o_o  4096 Nov 17 19:41 ..```
