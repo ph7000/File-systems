@@ -1,0 +1,21 @@
+obj-m += myez.o
+
+all: kmod format_disk_as_ezfs
+
+format_disk_as_ezfs: CC = gcc
+format_disk_as_ezfs: CFLAGS = -g -Wall
+
+PHONY += kmod
+kmod:
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+PHONY += clean
+clean:
+	@# the following command will remove your compile_commands.json
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+	rm -f format_disk_as_ezfs
+	@# if you're using a compile_commands.json, store in a safe place
+	@# and copy it back to this directory here
+	@# cp -f .clangd-db/compile_commands.json compile_commands.json
+
+.PHONY: $(PHONY)
